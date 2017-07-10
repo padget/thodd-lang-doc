@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\documentclass{book}
+\documentclass{report}
 \usepackage[utf8]{inputenc}    
 \usepackage[T1]{fontenc}
 \usepackage[francais]{babel}   
@@ -15,30 +15,132 @@
 
 \newpage
 
-\section{Introduction}
 
-Les langages modernes sont pour la plupart de plus en plus simplistes pour permettre au plus grand nombre de commencer la programmation. Mais n'oublions pas que programmer reste avant tout un exercice intellectuel consistant à décrire de la meilleure manière possible ce que doit faire le programme. 
 
-\section{Types simples}
 
-Pour permettre une programmabilité minimale, tout langage se doit de fournir quelques types de base. Thodd n'échappe pas à cette rêgle. On retrouvera donc les nombres, les caractères et les tableaux. Chacun se décline dans plusieurs types de base. 
+\chapter{Introduction}
 
-\subsection{Nombres}
+Les langages modernes sont pour la plupart de plus en 
+plus simplistes pour permettre au plus grand nombre de 
+commencer la programmation. Mais n'oublions pas que 
+programmer reste avant tout un exercice intellectuel 
+consistant à décrire de la meilleure manière possible 
+ce que doit faire le programme. 
 
-Les types de base étant vus comme nombre sont les entiers positifs, négatifs ainsi que les nombres à virgule flottante. Chacun de ces types sont livrés avec thodd en plusieurs déclinaisons suivant l'interval [min ; max] de valeur qui est nécessaire au sein du programme. Par exemple on ne voudra pas utiliser un type ayant une capacité [$-2^{31}-1$;$+2^{31}$]
 
-\subsubsection{Entiers}
 
-\subsubsection{Flottant}
 
-\subsubsection{Ce qu'il faut retenir}
+
+\chapter{Types simples}
+
+Pour permettre une programmabilité minimale, tout langage
+se doit de fournir quelques types de base. Thodd n'échappe 
+pas à cette rêgle. On retrouvera donc les nombres, les 
+caractères et les tableaux. Chacun se décline dans plusieurs 
+types de base. 
+
+\section{Nombres}
+
+Les types de base étant vus comme nombre sont les entiers 
+positifs, négatifs ainsi que les nombres à virgule flottante. 
+Chacun de ces types sont livrés avec thodd en plusieurs 
+déclinaisons suivant l'interval [min ; max] de valeur qui 
+est nécessaire au sein du programme. Par exemple on ne 
+voudra pas utiliser un type ayant une capacité [$-2^{31}-1$;$+2^{31}$]
+
+\subsection{Entiers}
+
+\subsection{Flottant}
+
+\section{Caractères} 
+
+\section{Booléens}
+
+\section{Bytes}
+
+\section{Tableaux}
+
+\section{Ce qu'il faut retenir}
+
+
+
+
+
+
+\chapter{Référence, Composant, Valeur}
  
+Le langage thodd prend le parti de ne pas avoir de avoir de garbage collector. 
+De fait, il faut fournir un système de modélisation permettant de rendre prévisible
+la durée de vie des variables dans le programme.
+
+Thodd fournit pour cela trois types de variables :
+\begin{itemize}
+    \item Valeur
+    \item Référence
+    \item Composant
+\end{itemize} 
+
+\section{Valeur}
+Une valeur est le type de variable avec la durée de vie la plus courte et la plus prévisible.
+Elle strictement cantonnée au scope dans lequel elle est déclarée. De plus, elle n'est connue qu'une 
+fois déclarer. Une déclaration de valeur (ou tout autre chose)  n'est connu du programme qu'après sa 
+déclaration.
+
+\begin{verbatim}
+    /// x inconnu ici
+    x : int = 2
+    /// x connu ici
+\end{verbatim} 
+
+Lorsque l'on sort du scope de la valeur, celle ci est détruite.
+
+Une valeur est forcement instanciée dans la pile (par opposition au tas).
+
+\section{Référence}
+
+Une référence permet de ...
+
+Une référence est le type de variable avec la durée de vie potentiellement la plus longue 
+et la moins prévisible. En réalité, ce n'est pas tout à fait vrai, car on ne peut avoir une 
+référence que sur une valeur ou bien un composant. 
+
+Une référence peut être nulle. De telle sorte qu'une référence peut porté durant son existence sur
+plusieurs valeurs (mais une seule à un instant t).
+
+\section{Composant}
 
 
-\section{Fonctions}
 
-\section{Plain Of Data (POD)}
 
-\section{Ensembles}
+
+\chapter{Fonctions}
+
+\section{Fonctions classiques}
+
+\subsection{Déclaration}
+
+\subsection{Utilisation}
+
+\section{Fonctions anonymes : $\lambda$}
+
+
+
+
+
+\chapter{Plain Of Data (POD)}
+
+
+
+
+
+\chapter{Ensembles}
+
+\chapter{Operator sshape}
+
+\chapter{Annotations}
+
+\section{Principe}
+
+\section{Annotation processors}
 
 \end{document}
