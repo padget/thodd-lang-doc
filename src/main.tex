@@ -109,6 +109,31 @@ plusieurs valeurs (mais une seule à un instant t).
 
 \section{Composant}
 
+Un composant permet de mettre en place une relation de dépendance forte entre deux objets. 
+L'un sera désigné comme possesseur et l'autre comme possédé. Le cycle de vie du possédé étant
+par conséquent lié au possesseur. Un possédé sera au maximum détruit qu'au moment de la destruction
+du possesseur.
+
+\begin{verbatim}
+    p : person /// Création d'une personne
+    a : address /// Création d'une adresse
+    a.street = "555 melrose street"
+    p.@address = a /// L'adresse a est maintenant sous le contrôle de p via l'attribut address
+    /// Ici nous avons utilisé un POD (vu plus tard dans ce manuel). 
+\end{verbatim} 
+
+Du point de vue cycle de vie, le composant et la valeur peuvent semblé similaire. La différence
+se situe dans le point suivant : une valeur est forcément valorisée alors qu'un composant peut être
+null. 
+Remarquons la manière dont l'affectation à été faite sur le composant :
+
+\begin{verbatim}
+    p.@address = a 
+\end{verbatim} 
+
+
+
+
 
 
 
@@ -123,11 +148,13 @@ plusieurs valeurs (mais une seule à un instant t).
 
 \section{Fonctions anonymes : $\lambda$}
 
-
+@1 + @2 + @0(@1 + @3)
 
 
 
 \chapter{Plain Of Data (POD)}
+
+Le POD est la manière centrale de modéliser les structures de données. 
 
 
 
